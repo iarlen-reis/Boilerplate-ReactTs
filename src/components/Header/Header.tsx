@@ -1,42 +1,73 @@
-import React, { useContext } from "react";
-import { HeaderStyled, NavStyled, UlStyled } from "./Style";
-import { NavLink } from "react-router-dom";
-import Switch from "react-switch";
-import { ThemeContext } from "styled-components";
+import React, { useState } from "react";
+import {
+  HeaderStyled,
+  HeaderContainer,
+  MenuContainer,
+  UlStyled,
+  ContactContainer,
+  UlSocial,
+  NavStyled,
+  WhatsappStyled,
+} from "./Style";
 
-interface HeaderProps {
-  onChangeTheme: () => void;
-}
+import LogoHeader from "/logo-header.png";
+import IfoodHeader from "/ifood-header.png";
+import InstagramHeader from "/instagram-header.png";
+import WhatsappHeader from "/whatsapp-header.png";
 
-const Header = ({ onChangeTheme }: HeaderProps) => {
-  const { name } = useContext(ThemeContext);
+import { GrMenu, GrClose } from "react-icons/gr";
+
+const Header = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
     <HeaderStyled>
-      <NavStyled>
-        <NavLink to="/">Home</NavLink>
-        <UlStyled>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">Sobre</NavLink>
-          </li>
-          <li>
-            <Switch
-              onChange={onChangeTheme}
-              height={20}
-              width={40}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              handleDiameter={20}
-              offColor="#AAA"
-              onColor="#323232"
-              checked={name === "dark"}
-            />
-          </li>
-        </UlStyled>
-      </NavStyled>
+      <HeaderContainer>
+        <a href="#">
+          <img src={LogoHeader} alt="" />
+        </a>
+        <MenuContainer>
+          <NavStyled>
+            <UlStyled>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">promoção</a>
+              </li>
+              <li>
+                <a href="#">cardápio</a>
+              </li>
+              <li>
+                <a href="#">comentário</a>
+              </li>
+              <li>
+                <a href="#">contato</a>
+              </li>
+            </UlStyled>
+          </NavStyled>
+          <ContactContainer>
+            <UlSocial>
+              <li>
+                <a href="#">
+                  <img src={IfoodHeader} alt="" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src={InstagramHeader} alt="" srcSet="" />
+                </a>
+              </li>
+            </UlSocial>
+            <WhatsappStyled>
+              <button>
+                <img src={WhatsappHeader} alt="" />
+                Contato
+              </button>
+            </WhatsappStyled>
+          </ContactContainer>
+        </MenuContainer>
+      </HeaderContainer>
     </HeaderStyled>
   );
 };

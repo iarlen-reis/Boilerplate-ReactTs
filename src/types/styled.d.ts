@@ -9,16 +9,30 @@ declare module "styled-components" {
           secondary: string,
           tertiary: string,
       
-          textColor: string,
-          linkColor: string,
-
+          headerBackground: string,
+      
+          textTitle: string,
+          textTitleButton: string,
+      
+          textWhiteBanner: string,
+          textBrownBanner: string,
+          text: string,
+          link: string,
+      
           background: string,
-        },
+        };
         sizes: {
-            regular: string,
-            small: string,
-            big: string,
-            veryBig: string,
-          };
+          regular: string,
+          regularPlus: string,
+          small: string,
+          big: string,
+          bigPlus: string,
+          super: string,
+          superPlus: string,
+        };
+        font: {
+          lato: string,
+          lile: string,
+        };
     }
 }

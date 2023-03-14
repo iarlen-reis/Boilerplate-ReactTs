@@ -5,7 +5,8 @@ export default createGlobalStyle`
     padding: 0;
     margin  : 0;
     box-sizing: border-box;
-    color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.colors.text};
+    font-family: ${({ theme }) => theme.font.lato};
   }
 
   a {
@@ -18,6 +19,10 @@ export default createGlobalStyle`
 
   body {
     background: ${(props) => props.theme.colors.background};
+  }
+
+  html {
+    font-size: 62.5%;
   }
 `;
 
